@@ -63,7 +63,7 @@ const page = () => {
             </section>
 
             <section class="text-gray-600 body-font overflow-hidden">
-                <div class=" lg:px-24 lg:py-12 px-5 mx-auto">
+                <div class=" lg:px-24 py-12 px-5 mx-auto">
                 <h1 className='text-2xl text-center mb-10 text-[#791c19] font-semibold'>OUR AFTER SALES SERVICE</h1>
                     <div class="mx-auto flex flex-wrap">
                     <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://ingelyt.com/en/wp-content/uploads/sites/2/2017/11/maintenance-after-sales-service-ingelyt-clean-room-ingeneering-gmp-consulting.jpg" />
