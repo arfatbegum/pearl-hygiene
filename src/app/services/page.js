@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import Image from 'next/image';
 const page = () => {
     return (
         <div>
@@ -10,7 +9,7 @@ const page = () => {
                 <div class=" lg:px-24 px-5 py-12 mx-auto">
                 <h1 className='text-2xl text-center mb-10 text-[#791c19] font-semibold'>OUR CONSULTING SERVICE</h1>
                     <div class="mx-auto flex flex-wrap">
-                        <Image width={500} height={500}  alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://www.youthemployment.org.uk/dev/wp-content/uploads/2023/11/BICSc-Feature-Image-5.png" />
+                        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://www.youthemployment.org.uk/dev/wp-content/uploads/2023/11/BICSc-Feature-Image-5.png" />
                         <div class="lg:w-1/2 w-full bg-white shadow-md p-4 lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <h1 className='text-2xl text-[#791c19] font-semibold mb-2'>CONSULTING</h1>
                             <p className='text-base text-gray-500'>Experts providing most appropriate and cost effective solutions.</p>
@@ -58,7 +57,7 @@ const page = () => {
                             As part of our comprehensive After Sale service policy, Our FREE training encompasses a holistic approach to the use of equipment and machines and its periodic maintenance.
                             </p>
                         </div>
-                        <Image width={500} height={500}  alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://www.sq1.com.sg/wp-content/uploads/2022/03/5-questions-before-hiring-a-cleaning-company-for-your-office.jpg" />
+                        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://www.sq1.com.sg/wp-content/uploads/2022/03/5-questions-before-hiring-a-cleaning-company-for-your-office.jpg" />
                     </div>
                 </div>
             </section>
@@ -67,7 +66,7 @@ const page = () => {
                 <div class=" lg:px-24 lg:py-12 px-5 mx-auto">
                 <h1 className='text-2xl text-center mb-10 text-[#791c19] font-semibold'>OUR AFTER SALES SERVICE</h1>
                     <div class="mx-auto flex flex-wrap">
-                    <Image width={500} height={500} alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://ingelyt.com/en/wp-content/uploads/sites/2/2017/11/maintenance-after-sales-service-ingelyt-clean-room-ingeneering-gmp-consulting.jpg" />
+                    <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://ingelyt.com/en/wp-content/uploads/sites/2/2017/11/maintenance-after-sales-service-ingelyt-clean-room-ingeneering-gmp-consulting.jpg" />
                         <div class="lg:w-1/2 w-full bg-white shadow-md p-4 lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <h1 className='text-2xl text-[#791c19] font-semibold mb-2'>AFTER SALES</h1>
                             <p className='text-base text-gray-500'>Pearl Hygiene service team assures equipment’s and tools performance according to buyers expectations.</p>
@@ -103,7 +102,7 @@ const page = () => {
                             Kindly do feel free to apprise us of your expectations and challenges.
                             </p>
                         </div>
-                        <Image width={500} height={500}  alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://thecleanupclub.com/wp-content/uploads/2016/09/vacationrentals.jpg" />
+                        <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center shadow-md" src="https://thecleanupclub.com/wp-content/uploads/2016/09/vacationrentals.jpg" />
                     </div>
                 </div>
             </section>
