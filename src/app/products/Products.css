@@ -21,7 +21,6 @@
 }
 
 .product-item {
-  border: 2px solid rgb(241, 241, 241);
   padding: 10px;
   display: flex;
   justify-content: center;

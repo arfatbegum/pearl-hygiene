@@ -157,7 +157,7 @@ const ProductDetails = ({ params }) => {
 
         </div> : <div className="overlay">
 
-          <div className="lds-facebook"><div></div><div></div><div></div></div>
+          <div className="loader"><div></div><div></div><div></div></div>
 
         </div>
       }

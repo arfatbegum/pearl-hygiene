@@ -97,7 +97,7 @@ const FeaturedProducts = () => {
 
             </Carousel> : <div className="overlay">
 
-              <div className="lds-facebook">
+              <div className="loader">
                 <div></div><div></div><div></div></div>
             </div>
         }

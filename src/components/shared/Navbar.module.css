@@ -136,6 +136,9 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .navbar {
+    padding: 0px 0px;
+  }
   .nav_menu {
     display: flex;
     flex-direction: column;

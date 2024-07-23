@@ -1,9 +1,7 @@
 const LoadingPage = () => {
     return (
-        <div>
-            <div className="overlay">
-                <div className="lds-facebook"><div></div><div></div><div></div></div>
-                </div>
+        <div className="flex justify-center items-center min-h-screen">
+           <span className="loader"></span>
         </div>
     );
 };

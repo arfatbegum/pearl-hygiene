@@ -31,12 +31,12 @@ const Brands = () => {
         <div>
             {
                 brands[0] ? <div>
-                    <h1 className="brands-title bg-[#581412] py-8">Our Brands</h1>
+                    <h1 className="brands-title bg-[#581412] py-8">Our Top Brands</h1>
                     <div id="brands-data">
 
                         {
                             brands.map((brand) => (
-                                <div className="brand-item bg-white" key={brand}>
+                                <div className="brand-item bg-white shadow" key={brand}>
                                     <Link href={{
                                         pathname: '/products',
                                         query: { brand: brand.id },
@@ -63,7 +63,7 @@ const Brands = () => {
                     </div>
                 </div> : <div className="overlay">
 
-                    <div className="lds-facebook"><div></div><div></div><div></div></div>
+                    <div className="loader"><div></div><div></div><div></div></div>
                 </div>
             }
         </div>

@@ -69,57 +69,22 @@ const ProductsPage = ({ searchParams }) => {
                     <div>
                         <div className="bg-[#581412] py-2">
                             <h1 className="products-title">Our Products</h1>
-
                             {
-                                !(searchBrand || searchCategory) && <div id="search">
-                                    <svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
-                                        <rect class="bar" />
-
-                                        <g class="magnifier">
-                                            <circle class="glass" />
-                                            <line class="handle" x1="32" y1="32" x2="44" y2="44"></line>
-                                        </g>
-
-                                        <g class="sparks">
-                                            <circle class="spark" />
-                                            <circle class="spark" />
-                                            <circle class="spark" />
-                                        </g>
-
-                                        <g class="burst pattern-one">
-                                            <circle class="particle circle" />
-                                            <path class="particle triangle" />
-                                            <circle class="particle circle" />
-                                            <path class="particle plus" />
-                                            <rect class="particle rect" />
-                                            <path class="particle triangle" />
-                                        </g>
-                                        <g class="burst pattern-two">
-                                            <path class="particle plus" />
-                                            <circle class="particle circle" />
-                                            <path class="particle triangle" />
-                                            <rect class="particle rect" />
-                                            <circle class="particle circle" />
-                                            <path class="particle plus" />
-                                        </g>
-                                        <g class="burst pattern-three">
-                                            <circle class="particle circle" />
-                                            <rect class="particle rect" />
-                                            <path class="particle plus" />
-                                            <path class="particle triangle" />
-                                            <rect class="particle rect" />
-                                            <path class="particle plus" />
-                                        </g>
+                                !(searchBrand || searchCategory) &&
+                                <div class="bg-white border-2 lg:mx-96 mx-5 mb-5  shadow p-2 relative rounded-xl flex">
+                                <span class="w-auto flex justify-end  items-center text-gray-500 p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
-                                    <input
-                                        type="search"
-                                        name="searchInput"
-                                        aria-label="Search Products"
-                                        value={searchQuery}
-                                        onChange={handleSearchChange}
-                                        placeholder="Search Products"
-                                    />
-                                </div>
+                                </span>
+                                <input
+                                    type="search"
+                                    name="searchInput"
+                                    aria-label="Search Products"
+                                    value={searchQuery}
+                                    onChange={handleSearchChange}
+                                    placeholder="Search Products" id="title" class="border-white outline-none border-0 w-full rounded-xl p-2" />
+                            </div>
                             }
                         </div>
 
@@ -132,9 +97,9 @@ const ProductsPage = ({ searchParams }) => {
                                     <div className="lg:mt-0 mt-4">
                                         <h2 className="mb-5 text-lg"><b>{searchBrand}</b></h2>
                                         <p>{brand.details}</p>
-                                            <div className="mt-6">
+                                        <div className="mt-6">
                                             <Link href={`${brand.url}`} target="_blank">For more info visit : <span className="underline text-[#581412]">{brand.url}</span></Link>
-                                       </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -238,7 +203,7 @@ const ProductsPage = ({ searchParams }) => {
                 ) :
                     <div className="overlay">
 
-                        <div className="lds-facebook"><div></div><div></div><div></div></div>
+                        <div className="loader"><div></div><div></div><div></div></div>
                     </div>
             }
 
