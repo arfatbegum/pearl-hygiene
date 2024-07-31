@@ -5,6 +5,7 @@ import { faFacebookF, faXTwitter, faInstagram, faLinkedin } from '@fortawesome/f
 import Link from "next/link";
 import Image from "next/image";
 import PearlHygieneLogo from "@/assets/logo.png";
+import { faEnvelope, faFax, faLocation, faMapLocation, faMobilePhone, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
@@ -29,66 +30,66 @@ const Footer = () => {
                     <div class="lg:w-1/3 md:w-1/2 w-full px-8">
                         <h2 class="title-font font-semibold text-[#581412] tracking-widest text-sm mb-3">SERVICES</h2>
                         <nav class="list-none mb-10">
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Consulting</a>
+                            <li className="mb-2">
+                                <a href="/services" class="text-gray-600 hover:text-gray-800">Consulting</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Training</a>
+                            <li className="mb-2">
+                                <a href="/services" class="text-gray-600 hover:text-gray-800">Training</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Sales</a>
+                            <li className="mb-2">
+                                <a href="/services" class="text-gray-600 hover:text-gray-800">Sales</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Rentals</a>
+                            <li className="mb-2">
+                                <a href="/services" class="text-gray-600 hover:text-gray-800">Rentals</a>
                             </li>
                         </nav>
                     </div>
                     <div class="lg:w-1/3 md:w-1/2 w-full px-8">
                         <h2 class="title-font font-semibold text-[#581412] tracking-widest text-sm mb-3">QUICK LINKS</h2>
                         <nav class="list-none mb-10">
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Home</a>
+                            <li className="mb-2">
+                                <a href="/" class="text-gray-600 hover:text-gray-800">Home</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">About</a>
+                            <li className="mb-2">
+                                <a href="/about-us" class="text-gray-600 hover:text-gray-800">About</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Services</a>
+                            <li className="mb-2">
+                                <a href="/services" class="text-gray-600 hover:text-gray-800">Services</a>
                             </li>
-                            <li>
-                                <a class="text-gray-600 hover:text-gray-800">Contact</a>
+                            <li className="mb-2">
+                                <a href="/contact-us" class="text-gray-600 hover:text-gray-800">Contact</a>
                             </li>
                         </nav>
                     </div>
                     <div class="lg:w-1/3 md:w-1/2 w-full px-4">
                         <h2 class="title-font font-semibold text-[#581412] tracking-widest text-sm mb-3">CONTACT</h2>
                         <nav class="list-none mb-10">
-                            <li>
+                            <li className="mb-2">
                                 <a class="text-gray-600 hover:text-gray-800">
                                     <Link href='mailto:marketing@pearlhygiene.com.sa'>
-                                        marketing@pearlhygiene.com.sa
+                                        <FontAwesomeIcon icon={faEnvelope} className="mr-1 text-[#581412]" style={{ width: 15 }} /> marketing@pearlhygiene.com.sa
                                     </Link></a>
                             </li>
-                            <li>
+                            <li className="mb-2">
                                 <a class="text-gray-600 hover:text-gray-800">
                                     <Link href='tel:0112486986'>
-                                        011 2486986
+                                    <FontAwesomeIcon icon={faPhone} className="mr-1 text-[#581412]" style={{ width: 15 }} /> 011 2486986
                                     </Link></a>
                             </li>
-                            <li>
+                            <li className="mb-2">
                                 <Link href='tel:+966 56 000 0342'>
-                                    +966 56 000 0342
+                                <FontAwesomeIcon icon={faMobilePhone} className="mr-1 text-[#581412]" style={{ width: 15 }} /> +966 56 000 0342
                                 </Link>
                             </li>
                             <li>
                                 <a target="_blank" href='https://maps.app.goo.gl/KC4TEKwrazZvwYpC8' >
-                                    Al Malaz District, Riyadh, Saudi Arabia
+                                <FontAwesomeIcon icon={faMapLocation} className="mr-1 text-[#581412]" style={{ width: 15 }} />  Al Malaz District, Riyadh, Saudi Arabia
                                 </a>
                             </li>
                             <div>
                                 <ul className={styles.wrapper}>
 
-                                    <li>
+                                    <li >
                                         <Link href="/" className={`${styles.icon} ${styles.facebook}`}>
                                             <span className={styles.tooltip}>Facebook</span>
                                             <FontAwesomeIcon icon={faFacebookF} style={{ width: 9 }} />

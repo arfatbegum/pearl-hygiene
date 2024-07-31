@@ -72,19 +72,19 @@ const ProductsPage = ({ searchParams }) => {
                             {
                                 !(searchBrand || searchCategory) &&
                                 <div class="bg-white border-2 lg:mx-96 mx-5 mb-5  shadow p-2 relative rounded-xl flex">
-                                <span class="w-auto flex justify-end  items-center text-gray-500 p-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                    </svg>
-                                </span>
-                                <input
-                                    type="search"
-                                    name="searchInput"
-                                    aria-label="Search Products"
-                                    value={searchQuery}
-                                    onChange={handleSearchChange}
-                                    placeholder="Search Products" id="title" class="border-white outline-none border-0 w-full rounded-xl p-2" />
-                            </div>
+                                    <span class="w-auto flex justify-end  items-center text-gray-500 p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </span>
+                                    <input
+                                        type="search"
+                                        name="searchInput"
+                                        aria-label="Search Products"
+                                        value={searchQuery}
+                                        onChange={handleSearchChange}
+                                        placeholder="Search Products" id="title" class="border-white outline-none border-0 w-full rounded-xl p-2" />
+                                </div>
                             }
                         </div>
 
@@ -109,7 +109,7 @@ const ProductsPage = ({ searchParams }) => {
                             {searchBrand && products
                                 .filter(product => product.productBrand === searchBrand)
                                 .map(product => (
-                                    <div key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                    <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
                                         <div class="p-5">
                                             <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{product.productName}</h5>
@@ -120,13 +120,13 @@ const ProductsPage = ({ searchParams }) => {
                                                 </svg>
                                             </Link>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
 
                             {searchCategory && !searchSubCategory && products
                                 .filter(product => product.productCategory === searchCategory)
                                 .map(product => (
-                                    <div key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                    <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
                                         <div class="p-5">
                                             <h5 class="mb-2 text-[20px] font-bold tracking-tight text-gray-900">{product.productName}</h5>
@@ -137,14 +137,14 @@ const ProductsPage = ({ searchParams }) => {
                                                 </svg>
                                             </Link>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))
                             }
 
                             {searchCategory && searchSubCategory && products
                                 .filter(product => (product.productCategory === searchCategory && product.productSubCategory == searchSubCategory))
                                 .map(product => (
-                                    <div key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                    <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
                                         <div class="p-5">
                                             <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
@@ -155,7 +155,7 @@ const ProductsPage = ({ searchParams }) => {
                                                 </svg>
                                             </Link>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))
                             }
 
@@ -163,7 +163,7 @@ const ProductsPage = ({ searchParams }) => {
                                 !(searchBrand || searchCategory) && currentProducts
                                     .filter(product => product.productName.toLowerCase().includes(searchQuery.toLowerCase()) || product.productBrand.toLowerCase().includes(searchQuery.toLowerCase()))
                                     .map(product => (
-                                        <div key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                        <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                             <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
                                             <div class="p-5">
                                                 <h5 class="mb-2 text-[20px] font-bold tracking-tight text-gray-900">{product.productName}</h5>
@@ -174,7 +174,7 @@ const ProductsPage = ({ searchParams }) => {
                                                     </svg>
                                                 </Link>
                                             </div>
-                                        </div>
+                                        </Link>
                                     ))
                             }
 

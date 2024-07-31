@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Grid } from "@mui/material";
-import Link from "next/link";
 import { faFilter, faFlag, faHandshake, faSnowflake } from "@fortawesome/free-solid-svg-icons";
 import './OurServices.css';
 

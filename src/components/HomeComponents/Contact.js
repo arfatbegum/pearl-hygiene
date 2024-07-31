@@ -49,7 +49,7 @@ const Contact = () => {
                                 type="email" name="email" placeholder="Email" required />
                         </div>
                         <div class="my-4">
-                            <textarea name="message" placeholder="Enter your message" required class="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+                            <textarea name="message" placeholder="Enter your message" required class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
                         </div>
                         <div class="my-2 w-1/2 lg:w-1/4">
                             <button class="uppercase text-sm font-bold tracking-wide bg-[#581412] text-gray-100 p-3 rounded-lg w-full 
