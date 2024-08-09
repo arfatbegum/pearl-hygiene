@@ -1,11 +1,12 @@
-import React from 'react';
+import CleaningSector from "@/components/CleaningSector/CleaningSector";
 
-const page = () => {
+const SectorPage = () => {
+
     return (
         <div>
-                 <h1 className="text-center text-4xl text-white uppercase bg-[#581412] py-8">FEATURED CLEANING SECTORS</h1>
+           <CleaningSector/>
         </div>
     );
 };
 
-export default page;
+export default SectorPage;

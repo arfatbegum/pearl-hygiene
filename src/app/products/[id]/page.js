@@ -102,12 +102,11 @@ const ProductDetails = ({ params }) => {
 
           <div className="product-details-main">
 
-            {images && (
-              <div className="product-image-container mt-8 lg:mt-0">
+            <div className="product-image-container mt-8 lg:mt-0">
+              {images && (
                 <ImageGallery items={images} showFullscreenButton={false} showPlayButton={false} showBullets={false} showIndex={false} showNav={true} infinite={true} autoPlay={false} />
-              </div>
-
-            )}
+              )}
+            </div>
 
             <div className="product-details-text">
               <h2>{name}</h2>
@@ -120,7 +119,7 @@ const ProductDetails = ({ params }) => {
               <h3>Code</h3>
               <p>{code}</p>
               <h3>Product Description</h3>
-              <p><span>{shortDescription} ...</span> <Link className="read-more" href="#product-description">Read More</Link></p>
+              <p><span className="" dangerouslySetInnerHTML={{ __html: shortDescription }}></span><Link className="read-more" href="#product-description">...Read More</Link></p>
               <div className="product-details-btns w-full">
                 <Link href={{ pathname: '/request-quote', query: { id: params.id } }}><button id="requestBtn" className="px-2">Request for Quotation</button></Link>
                 <button title="Share This Product" id="shareBtn" onClick={handleShare}><FontAwesomeIcon icon={faShare} /></button>
@@ -131,7 +130,7 @@ const ProductDetails = ({ params }) => {
           <div id="product-description">
             <h2>Product Description</h2>
             <br />
-            <p>{description}</p>
+            <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: description }}></p>
           </div>
 
           <div id="product-specifications">

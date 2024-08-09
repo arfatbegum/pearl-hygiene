@@ -8,11 +8,13 @@ import Link from "next/link";
 
 const ProductsPage = ({ searchParams }) => {
     const searchBrand = searchParams.brand;
+    const searchSector = searchParams.sector;
     const searchCategory = searchParams.category;
     const searchSubCategory = searchParams.subCategory;
 
     const [products, setProducts] = useState([]);
     const [brand, setBrand] = useState([]);
+    const [sector, setSector] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
     const [searchQuery, setSearchQuery] = useState("");
@@ -53,6 +55,20 @@ const ProductsPage = ({ searchParams }) => {
     }, [searchBrand]);
 
 
+    useEffect(() => {
+        const sectorRef = ref(database, `cleaning-sectors/${searchSector}`);
+        get(sectorRef).then((snapshot) => {
+            if (snapshot.exists()) {
+
+                setSector(snapshot.val());
+
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }, [searchSector]);
+
+
     // Get current products
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -68,9 +84,28 @@ const ProductsPage = ({ searchParams }) => {
                 products[0] ? (
                     <div>
                         <div className="bg-[#581412] py-2">
-                            <h1 className="products-title">Our Products</h1>
                             {
-                                !(searchBrand || searchCategory) &&
+                                !(searchSubCategory || searchCategory || searchBrand || searchSector) && <h1 className="products-title">Our Products</h1>
+
+                            }
+                              {
+                                !( searchCategory || searchBrand || searchSector) && <h1 className="products-title">{searchSubCategory}</h1>
+
+                            }
+                             {
+                                !(searchSubCategory || searchBrand || searchSector) && <h1 className="products-title">{searchCategory}</h1>
+
+                            }
+                            {
+                                !(searchSubCategory || searchCategory || searchSector) && <h1 className="products-title">{searchBrand}</h1>
+
+                            }
+                            {
+                                !(searchSubCategory || searchCategory || searchBrand) && <h1 className="products-title">{searchSector}</h1>
+
+                            }
+                            {
+                                !(searchSubCategory || searchCategory || searchBrand || searchSector) &&
                                 <div class="bg-white border-2 lg:mx-96 mx-5 mb-5  shadow p-2 relative rounded-xl flex">
                                     <span class="w-auto flex justify-end  items-center text-gray-500 p-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -91,23 +126,57 @@ const ProductsPage = ({ searchParams }) => {
 
                         <div>
                             {
-                                !(searchSubCategory || searchCategory) && (brand && searchBrand) &&
+                                !(searchSubCategory || searchCategory || searchSector) && (brand && searchBrand) &&
                                 <div className="bg-white lg:flex lg:gap-8 items-center lg:mx-24 lg:mt-12 lg:mb-24 m-4 p-8 shadow-md rounded-lg">
                                     <Image src={brand.image} alt={searchBrand} width={500} height={500} />
                                     <div className="lg:mt-0 mt-4">
                                         <h2 className="mb-5 text-lg"><b>{searchBrand}</b></h2>
-                                        <p>{brand.details}</p>
+                                        <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: brand.details }}></p>
                                         <div className="mt-6">
                                             <Link href={`${brand.url}`} target="_blank">For more info visit : <span className="underline text-[#581412]">{brand.url}</span></Link>
                                         </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+
+                        <div>
+                            {
+                                !(searchSubCategory || searchCategory || searchBrand) && (sector && searchSector) &&
+                                <div className="bg-white lg:flex lg:gap-8 items-center lg:mx-24 lg:mt-12 lg:mb-24 m-4 p-8 shadow-md rounded-lg">
+                                    {/* <Image src={sector.image} alt={searchSector} width={500} height={300} className="rounded-sm" /> */}
+                                    <div className="lg:mt-0 mt-4">
+                                        <h2 className="mb-5 text-4xl"><b>{searchSector}</b></h2>
+                                        <p className="leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: sector.details }}></p>
                                     </div>
 
                                 </div>
                             }
                         </div>
+
+
                         <div className="products-container">
                             {searchBrand && products
                                 .filter(product => product.productBrand === searchBrand)
+                                .map(product => (
+                                    <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                        <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
+                                        <div class="p-5">
+                                            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{product.productName}</h5>
+                                            <Link href={`products/${product.id}`} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#581412] rounded-lg hover:bg-[#09679d] focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                                                Details
+                                                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                </svg>
+                                            </Link>
+                                        </div>
+                                    </Link>
+                                ))}
+
+
+                            {searchSector && products
+                                .filter(product => product.productCleaningSector === searchSector)
                                 .map(product => (
                                     <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
@@ -147,7 +216,7 @@ const ProductsPage = ({ searchParams }) => {
                                     <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                                         <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
                                         <div class="p-5">
-                                            <img className="h-[300px] rounded-t-lg" src={product.images[0]} alt={product.productName} width={500} height={500} />
+                                            <h5 class="mb-2 text-[20px] font-bold tracking-tight text-gray-900">{product.productName}</h5>
                                             <Link href={`products/${product.id}`} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#581412] rounded-lg hover:bg-[#09679d] focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                                                 Details
                                                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -160,7 +229,7 @@ const ProductsPage = ({ searchParams }) => {
                             }
 
                             {
-                                !(searchBrand || searchCategory) && currentProducts
+                                !(searchBrand || searchCategory || searchSector) && currentProducts
                                     .filter(product => product.productName.toLowerCase().includes(searchQuery.toLowerCase()) || product.productBrand.toLowerCase().includes(searchQuery.toLowerCase()))
                                     .map(product => (
                                         <Link href={`products/${product.id}`} key={product.id} class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
@@ -181,7 +250,7 @@ const ProductsPage = ({ searchParams }) => {
                         </div>
 
                         {/* Pagination Controls */}
-                        {!(searchBrand || searchCategory) && (products.length > productsPerPage) && (
+                        {!(searchBrand || searchCategory || searchSector) && (products.length > productsPerPage) && (
                             <div style={{ margin: '30px 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
                                 <p className="text-xl text-red-900">Page: </p>
