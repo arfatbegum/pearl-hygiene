@@ -87,7 +87,7 @@ const FeaturedProducts = () => {
                 products.map((product) => (
                   <div className=" mx-4 rounded-lg mb-2 bg-white shadow-md" key={product}>
                     <Link href={`products/${product.id}`}>
-                      <Image src={product.image} width={500} height={500} alt={product.name} />
+                      <Image className="h-[200px]" src={product.image} width={500} height={500} alt={product.name} />
                       <p className="p-2 pb-4 text-[#581412] truncate">{product.name}</p>
                     </Link>
 
